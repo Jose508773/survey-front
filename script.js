@@ -23,5 +23,25 @@ async function sendData() {
     response_survey.textContent = `Response sent! Total so far: ${data.total_responses}`
 
 }
-s
+
 myButton.addEventListener('click', sendData);
+
+async function fetchData() {
+    try {
+        const response = await fetch('https://user-cervey-j8e0sudjr-jose-ochoas-projects-391a85d0.vercel.app/');
+        const data = await response.json();
+
+        if (data.total_responses != null) {
+            response_survey.textContent = `Total responses: ${data.total_responses}`;
+        } else if (data.message != null) {
+            response_survey.textContent = `Message: ${data.message}`;
+        } else {
+            response_survey.textContent = 'Unexpected response format';
+        }
+    } catch (error) {
+        response_survey.textContent = 'Error fetching data';
+        console.error(error);
+    }
+}
+
+button.addEventListener('click', fetchData);
