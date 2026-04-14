@@ -17,8 +17,11 @@ async function sendData() {
         body: JSON.stringify({ favoriteColor: inputValue })
     });
 
-    response_survey.textContent = 'Response sent: '
+    let data = await response.json();
+    
+    // Now use the parsed data to update the UI
+    response_survey.textContent = `Response sent! Total so far: ${data.total_responses}`
 
 }
-
+s
 myButton.addEventListener('click', sendData);
