@@ -9,7 +9,8 @@ let button = document.getElementById('people-responses');
 
 async function sendData() {
     let inputValue = myInput.value;
-    let response = await fetch('https://user-cervey-j8e0sudjr-jose-ochoas-projects-391a85d0.vercel.app/survey', {
+    const response = await fetch('https://user-cervey-i3wd14tn8-jose-ochoas-projects-391a85d0.vercel.app/survey', {
+
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -28,7 +29,8 @@ myButton.addEventListener('click', sendData);
 
 async function fetchData() {
     try {
-        const response = await fetch('https://user-cervey-j8e0sudjr-jose-ochoas-projects-391a85d0.vercel.app/');
+        const response = await fetch('https://user-cervey-i3wd14tn8-jose-ochoas-projects-391a85d0.vercel.app/responses');
+
         const data = await response.json();
 
         if (data.total_responses != null) {
