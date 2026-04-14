@@ -30,23 +30,22 @@ async function sendData() {
 
 myButton.addEventListener('click', sendData);
 
-async function fetchData() {
-    try {
-        const response = await fetch(`${BASE_URL}/responses`);
+async function fetchData() {                                                                                                            
+      try {                                                                                                                               
+          const response = await fetch(`${BASE_URL}/responses`);                                                                        
+          const data = await response.json();                                                                                             
 
-        const data = await response.json();
-
-        if (data.total_responses != null) {
-            response_survey.textContent = `Total responses: ${data.total_responses}`;
-        } else if (data.users != null) {
-            response_survey.textContent = `Message: ${data['favoriteColor']}`;
-        } else {
-            response_survey.textContent = 'Unexpected response format';
-        }
-    } catch (error) {
-        response_survey.textContent = 'Error fetching data';
-        console.error(error);
-    }
-}
+          if (data.users != null) {                                                                                                       
+              const colors = data.users.map(u => u.favoriteColor).join(', ');
+              pResponse.textContent = `Choices: ${colors}`;                                                                               
+              response_survey.textContent = `Total responses: ${data.users.length}`;                                                    
+          } else {                                                                                                                        
+              response_survey.textContent = 'Unexpected response format';
+          }                                                                                                                               
+      } catch (error) {                                                                                                                 
+          response_survey.textContent = 'Error fetching data';                                                                          
+          console.error(error);                                                                                                           
+      }
+  }                    
 
 button.addEventListener('click', fetchData);
