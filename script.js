@@ -38,7 +38,7 @@ async function fetchData() {
         if (data.total_responses != null) {
             response_survey.textContent = `Total responses: ${data.total_responses}`;
         } else if (data.users != null) {
-            response_survey.textContent = `Message: ${data.users}`;
+            response_survey.textContent = `Message: ${data['users']}`;
         } else {
             response_survey.textContent = 'Unexpected response format';
         }
