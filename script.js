@@ -1,3 +1,5 @@
+const BASE_URL = 'https://user-cervey-mtgy6ppdk-jose-ochoas-projects-391a85d0.vercel.app';
+
 const myInput = document.getElementById('myInput');
 const myButton = document.getElementById('myButton');
 
@@ -9,7 +11,7 @@ let button = document.getElementById('people-responses');
 
 async function sendData() {
     let inputValue = myInput.value;
-    const response = await fetch('https://user-cervey-gsar684cy-jose-ochoas-projects-391a85d0.vercel.app/survey', {
+    const response = await fetch(`${BASE_URL}/survey`, {
 
         method: 'POST',
         headers: {
@@ -29,7 +31,7 @@ myButton.addEventListener('click', sendData);
 
 async function fetchData() {
     try {
-        const response = await fetch('https://user-cervey-gsar684cy-jose-ochoas-projects-391a85d0.vercel.app/responses');
+        const response = await fetch(`${BASE_URL}/responses`);
 
         const data = await response.json();
 
