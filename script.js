@@ -1,4 +1,4 @@
-const BASE_URL = 'https://user-cervey-mtgy6ppdk-jose-ochoas-projects-391a85d0.vercel.app';
+const BASE_URL = 'https://user-cervey.vercel.app';
 
 const myInput = document.getElementById('myInput');
 const myButton = document.getElementById('myButton');
